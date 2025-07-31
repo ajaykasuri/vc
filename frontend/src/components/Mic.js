@@ -11,7 +11,7 @@ const VoiceCall = () => {
 
   useEffect(() => {
     // Socket connection
-    socketRef.current = io('https://paletteconnect.onrender.com');
+    socketRef.current = io('https://vc-g2rd.onrender.com');
 
     // WebRTC configuration
     const configuration = {

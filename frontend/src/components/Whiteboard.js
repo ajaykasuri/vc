@@ -23,7 +23,7 @@ const Canvas = ({ roomId, quiz }) => {
 
   useEffect(() => {
 
-    socketRef.current = io("https://paletteconnect.onrender.com");
+    socketRef.current = io("https://vc-g2rd.onrender.com");
     if (roomId) {
       socketRef.current.emit("joinRoom", roomId);
 

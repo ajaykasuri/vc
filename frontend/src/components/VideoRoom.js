@@ -26,7 +26,7 @@ const VideoRoom = () => {
     const [peerRecordingData, setPeerRecordingData] = useState([]);
 
     useEffect(() => {
-        socketRef.current = io.connect('https://paletteconnect.onrender.com');
+        socketRef.current = io.connect('https://vc-g2rd.onrender.com');
 
         navigator.mediaDevices.getUserMedia({ video: true, audio: true })
             .then(stream => {

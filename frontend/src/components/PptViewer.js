@@ -42,7 +42,7 @@ function PresentationViewer({ roomId }) {
 
   useEffect(() => {
     // Initialize Socket.IO connection
-    socketRef.current = io('https://paletteconnect.onrender.com');
+    socketRef.current = io('https://vc-g2rd.onrender.com');
 
     socketRef.current.emit('joinRoom', roomId);
 
@@ -98,7 +98,7 @@ function PresentationViewer({ roomId }) {
       formData.append('file', selectedFile);
       formData.append('roomId', roomId);
 
-      const pptResponse = await axios.post('https://paletteconnect.onrender.com/uploadPpt', formData, {
+      const pptResponse = await axios.post('https://vc-g2rd.onrender.com/uploadPpt', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 

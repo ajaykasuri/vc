@@ -24,7 +24,7 @@ const Audio = () => {
 
 
     useEffect(() => {
-        socketRef.current = io.connect('https://paletteconnect.onrender.com');
+        socketRef.current = io.connect('https://vc-g2rd.onrender.com');
 
         navigator.mediaDevices.getUserMedia({ video: true, audio: true })
             .then(stream => {
@@ -121,18 +121,20 @@ const Audio = () => {
         return () => clearInterval(interval);
     }, [transcription]);
 
-    const sendTranscriptionToBackend = (text) => {
-        console.log(text);
-        axios.post('https://backendfianlsih.azurewebsites.net/trans_quiz/get_questions', { transcript: text })
-            .then(response => {
-                console.log('Transcription saved successfully:', response.data);
-                // Update the backendResponse state with the data from the backend
-                setBackendResponse(response.data);
-            })
-            .catch(error => {
-                console.error('Error saving transcription:', error);
-            });
-    };
+  const sendTranscriptionToBackend = (text) => {
+    console.log(text);
+
+    axios.post('https://vc-g2rd.onrender.com/trans_quiz/get_questions', {
+        transcript: text,
+    })
+    .then(response => {
+        console.log('Transcription saved successfully:', response.data);
+        setBackendResponse(response.data);
+    })
+    .catch(error => {
+        console.error('Error saving transcription:', error);
+    });
+};
 
     const toggleCamera = () => {
         const videoTracks = streamRef.current.getVideoTracks();

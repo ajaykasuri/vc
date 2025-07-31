@@ -24,7 +24,7 @@ const WhiteBoardVideoRoom = () => {
     const [backendResponse, setBackendResponse] = useState(null);
 
     useEffect(() => {
-        socketRef.current = io.connect('https://paletteconnect.onrender.com');
+        socketRef.current = io.connect('https://vc-g2rd.onrender.com');
 
         navigator.mediaDevices.getUserMedia({ video: true, audio: true })
             .then(stream => {

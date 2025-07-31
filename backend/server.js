@@ -13,6 +13,22 @@ app.get('/', (req, res) => {
   res.send('✅ Backend is live and ready!');
 });
 
+app.post('/trans_quiz/get_questions', (req, res) => {
+  const { transcript } = req.body;
+
+  if (!transcript) {
+    return res.status(400).json({ error: 'Transcript is required' });
+  }
+
+  const questions = [
+    `What is the main idea of: "${transcript}"?`,
+    `List two key points from: "${transcript}".`,
+    `Summarize: "${transcript}".`
+  ];
+
+  res.json({ questions });
+});
+
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
