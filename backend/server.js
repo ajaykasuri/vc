@@ -9,6 +9,10 @@ const axios = require('axios')
 const app = express();
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.send('✅ Backend is live and ready!');
+});
+
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
